@@ -20,6 +20,7 @@
             color: #0023FF;
         }
     </style>
+    
     <script language="JavaScript">
         function showInput() {
             document.getElementById('display').innerHTML = 
@@ -28,17 +29,8 @@
                         + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
         }   
     </script>
-    <script>
-            var input  = document.getElementById("display");
-            var button = document.getElementById("copy-button");
-        
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
-                input.select();
-                document.execCommand("copy");
-                alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
-            });
-        </script>
+    
+    
 </head>
 
 <body>
@@ -178,6 +170,18 @@
 
     <br class="auto-style1" />
 
+    <script>
+        var input  = document.getElementById("display");
+        var button = document.getElementById("copy-button");
+    
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            input.select();
+            document.execCommand("copy");
+            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
+        });
+    </script>
+    
 </body>
 
 
