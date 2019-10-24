@@ -37,7 +37,7 @@
 
     <header class="auto-style1">
         <strong>
-            <span class="auto-style3">The Rap Sheet</span></span>
+            <span class="auto-style2">The Rap Sheet</span></span>
         </strong>
     </header>
 
@@ -49,7 +49,7 @@
         <br />
     <div id="input fields">
             <span class="auto-style1">Case Status: </span>
-                <select required name="Select2" id="status" class="auto-style1">
+                <select name="Select2" id="status" class="auto-style1">
                     <option>Work In Progress</option>
                     <option>New</option>
                     <option>Partial Service Restored</option>
@@ -73,13 +73,13 @@
                 <input name="Text3" type="text" id="cog" class="auto-style1" required/><br />
 
             <span class="auto-style1">Accountable Resolver Group: </span>
-                <input name="Text4" type="text" id="aro" placeholder="Leave blank if not applicable" class="auto-style1"/><br />
+                <input name="Text4" type="text" id="aro" placeholder="Leave blank if N/A" class="auto-style1"/><br />
             
             <span class="auto-style1">Escalation Source Name: </span>
                 <input name="Text5" type="text" id="escalName" class="auto-style1" required/><br />
             
             <span class="auto-style1">Escalation Source Org: </span>
-                <select required name="Select3" id="escalOrg" class="auto-style1">
+                <select name="Select3" id="escalOrg" class="auto-style1">
                     <option>S&AM</option>
                     <option>GSECC</option>
                     <option>HD English</option>
@@ -93,7 +93,7 @@
                 </select><br />
 
             <span class="auto-style1">Escalation Channel: </span>
-                <select required name="Select4" id="escalChannel" class="auto-style1">
+                <select name="Select4" id="escalChannel" class="auto-style1">
                     <option>Mailbox</option>
                     <option>Chatroom</option>
                     <option>Hotline</option>
@@ -102,7 +102,7 @@
                 </select><br />
             
             <span class="auto-style1">Escalation Startegy: </span>
-                <select required name="Select5" id="escalStrat" class="auto-style1">
+                <select name="Select5" id="escalStrat" class="auto-style1">
                     <option>GSECC IR Mgd</option>
                     <option>HCM</option>
                     <option>RCT HCM</option>
@@ -116,7 +116,7 @@
                 </select><br />
 
             <span class="auto-style1">Trigger: </span> 
-                <select required name="Select1" id="trigger" class="auto-style1">
+                <select name="Select1" id="trigger" class="auto-style1">
                     <option>Update - Timeliness</option>
                     <option>Update - Value</option>
                     <option>Update - Accuracy</option>
@@ -137,38 +137,34 @@
                 </select><br />
         
     </div>
-
+    
     <br />
 
     <button onclick="showInput();" class="auto-style1">Submit</button>&nbsp;&nbsp;&nbsp;
     <button onclick="location.reload();" class="auto-style1">Start Over</button>
 
-    </span> <br class="auto-style1" />
-        <br class="auto-style1" />
+    <br class="auto-style1" />
+    <br class="auto-style1" />
 
-    <span class="auto-style1"><strong><br />
-    Step 2:</strong> Copy-Paste the results to the escalation</span>
-        <span class="auto-style1"><strong>Task/Activity</strong> 
-        &gt; <strong>Description</strong> field in your case.</span>
+    <span class="auto-style1"><strong><br />Step 2:</strong> Copy-Paste the results to the escalation</span>
+            <span class="auto-style1"><strong>Task/Activity</strong> &gt; <strong>Description</strong> field in your case.</span>
+    
     <br class="auto-style1"/>
     <br class="auto-style1"/>
 
     <div id="output field">
-    <textarea id="display"name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" >
-    </textarea><br />
+        <textarea id="display"name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" >
+        </textarea><br />
     </div>
+
     <br />
     <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
 
-    <span class="auto-style1">
-
-
-
-    </span><br class="auto-style1" />
+    <span class="auto-style1"></span>
 
     <br class="auto-style1"/>
-
-    <br class="auto-style1" />
+    <br class="auto-style1"/>
+    <br class="auto-style1"/>
 
     <script>
         var input  = document.getElementById("display");
