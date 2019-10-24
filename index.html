@@ -1,159 +1,182 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta content="en-us" http-equiv="Content-Language" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>GSECC Incident Response Escalation Logger Tool</title>
-<style type="text/css">
-.auto-style1 {
-	font-family: Arial, Helvetica, sans-serif;
-}
-.auto-style2 {
-	color: #0023FF;
-}
-.auto-style3 {
-	font-size: larger;
-}
-.auto-style4 {
-	font-size: smaller;
-	color: #0023FF;
-}
-</style>
-
-<script language="JavaScript">
-    function showInput() {
-        document.getElementById('display').innerHTML = 
-                    document.getElementById("trigger").value + " | " + document.getElementById("status").value + " | " + document.getElementById("co").value + " | " 
-                    + document.getElementById("cog").value + " | " + document.getElementById("aro").value + " | " + document.getElementById("tm").value + " | " 
-                    + document.getElementById("challenges").value;
-    }   
-</script>
-
+    <meta content="en-us" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>GSECC Incident Response - The Rap Sheet</title>
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .auto-style2 {
+            color: #0023FF;
+        }
+        .auto-style3 {
+            font-size: larger;
+        }
+        .auto-style4 {
+            font-size: smaller;
+            color: #0023FF;
+        }
+    </style>
+    <script language="JavaScript">
+        function showInput() {
+            document.getElementById('display').innerHTML = 
+                        document.getElementById("status").value + " | " + document.getElementById("co").value + " | " + document.getElementById("cog").value + " | " 
+                        + document.getElementById("aro").value + " | " + document.getElementById("escalName").value + " | " + document.getElementById("escalOrg").value + " | " 
+                        + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
+        }   
+    </script>
+    <script>
+            var input  = document.getElementById("display");
+            var button = document.getElementById("copy-button");
+        
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                input.select();
+                document.execCommand("copy");
+                alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
+            });
+        </script>
 </head>
 
 <body>
 
+    <header class="auto-style1">
+        <strong>
+            <span class="auto-style3">The Rap Sheet</span></span>
+        </strong>
+    </header>
 
-<header class="auto-style1"><strong><span class="auto-style2">
-	<span class="auto-style3">The Rap Sheet</span><em><span class="auto-style3"> 
-	(Beta)</span></em></span></strong></header>
+    <br class="auto-style1" />
 
-<br class="auto-style1" />
+    <span class="auto-style1"><strong>
+    <br />
+    Step 1: </strong>Complete the form to capture details of the case at the point of escalation (or re-escalation).<br />
+        <br />
+    <div id="input fields">
+            <span class="auto-style1">Case Status: </span>
+                <select required name="Select2" id="status" class="auto-style1">
+                    <option>Work In Progress</option>
+                    <option>New</option>
+                    <option>Partial Service Restored</option>
+                    <option>Fix Applied</option>
+                    <option>Service Restored</option>
+                    <option>Closed</option>
+                    <option>Cancelled</option>
+                    <option>To Be Scheduled </option>
+                    <option>Reviewed - Not Accepted</option>
+                    <option>Awaiting More Details</option>
+                    <option>Notified</option>
+                    <option>Duplicate</option>
+                    <option>In Review</option>
+                    <option>Pending Knowledge Creation</option>
+                </select><br />
+            
+            <span class="auto-style1">Case Owner: </span> 
+                <input name="Text1" type="text" id="co" class="auto-style1" required/><br />
 
-<span class="auto-style1"><strong>
-<br />
-Step 1: </strong>Complete the form to capture details of the case at the point of escalation (or re-escalation).<br />
-	<br />
-<div id="input fields">
-	<span class="auto-style1">Trigger: </span> 
-<select name="Select1" id="trigger" class="auto-style1">
-	<option>Lack of Update - CO Miss</option>
-	<option>Lack of Update - Waiting on Customer</option>
-    <option>Manager or Supervisor Call</option>
-    <option>Loss of Revenue</option>
-    <option>Business Disruption</option>
-    <option>HD Needs ARO</option>
-	<option>Post Incident Review</option>
-	<option>Resolution - Challenged</option>
-	<option>Resolution - Follow Up</option>
-	<option>Resolution - Incorrect</option>
-    <option>Resolution - Urgent</option>
-    <option>Resolution - Aging Case</option>
-	<option>Complaint - Case Owner Behavior</option>
-	<option>Complaint - Other</option>
-	<option>Simple Inquiry</option>
-	<option>BAU - HD Bypassed</option>
-	<option>BAU - error in tagging</option>
-	<option>BAU - reason for escal unclear (blind cc)</option>
-</select><br />
-	<span class="auto-style1">Case Status: </span> <select name="Select2" id="status" class="auto-style1">
-	<option>Work In Progress</option>
-	<option>New</option>
-	<option>Partial Service Restored</option>
-	<option>Fix Applied</option>
-	<option>Service Restored</option>
-	<option>Closed</option>
-	<option>Cancelled</option>
-	<option>To Be Scheduled </option>
-	<option>Reviewed - Not Accepted</option>
-	<option>Awaiting More Details</option>
-	<option>Notified</option>
-	<option>Duplicate</option>
-	<option>In Review</option>
-	<option>No case</option>
-	</select><br />
-	<span class="auto-style1">Challenges:  
-<select name="Select3" id="challenges" class="auto-style1">
-	<option>ARO - availability</option>
-    <option>ARO - no update</option>
-	<option>ARO - ownership</option>
-	<option>ARO - ongoing investigation</option>
-	<option>Case Owner - availability</option>
-    <option>Tools Issue - CRM</option>
-    <option>Tools Issue - Telephony</option>
-    <option>Tools Issue - Network</option>
-    <option>3rd Party Dependency</option>
-    <option>Manager - Availability</option>
-    <option>None</option>
-	</select></span><br class="auto-style1" />
-	<span class="auto-style1">Case Owner: </span> <input name="Text1" type="text" class="auto-style1" id="co"/><br />
-	<span class="auto-style1">Case Owner Group: 
-<input name="Text3" type="text" id="cog" class="auto-style1"/><br />
-	Accountable Resolver Group: 
-<input name="Text4" type="text" id="aro" placeholder="Write NA if not applicable" class="auto-style1"/><br class="auto-style1" />
-	Team Manager Partner: </span> 
-	<input name="Text2" type="text" value="HCM" class="auto-style1" id="tm" /> 
-	<em><span class="auto-style4">***replace with <strong>full name</strong> of 
-	Team Manager if you will not engage <strong>HCM</strong> or <strong>NA</strong> 
-	if not applicable</span></em><br class="auto-style1" />
-	<br />
-</div>
-<button onclick="showInput();" class="auto-style1">Submit</button>&nbsp;&nbsp;&nbsp;
-<button onclick="location.reload();" class="auto-style1">Start Over</button>
+            <span class="auto-style1">Case Owner Group: </span>
+                <input name="Text3" type="text" id="cog" class="auto-style1" required/><br />
 
-</span> <br class="auto-style1" />
-	<br class="auto-style1" />
+            <span class="auto-style1">Accountable Resolver Group: </span>
+                <input name="Text4" type="text" id="aro" placeholder="Leave blank if not applicable" class="auto-style1"/><br />
+            
+            <span class="auto-style1">Escalation Source Name: </span>
+                <input name="Text5" type="text" id="escalName" class="auto-style1" required/><br />
+            
+            <span class="auto-style1">Escalation Source Org: </span>
+                <select required name="Select3" id="escalOrg" class="auto-style1">
+                    <option>S&AM</option>
+                    <option>GSECC</option>
+                    <option>HD English</option>
+                    <option>HD Non-Eng</option>
+                    <option>Content</option>
+                    <option>TechOps</option>
+                    <option>Implementation</option>
+                    <option>Wflow Spec</option>
+                    <option>Tech Spec</option>
+                    <option>Other</option>
+                </select><br />
 
-<span class="auto-style1"><strong><br />
-Step 2:</strong> Copy-Paste the 
-	results to the escalation</span>
-	<span class="auto-style1"><strong>Task/Activity</strong> 
-	&gt; <strong>Description</strong> field in your case.</span>
-<br class="auto-style1"/>
-<br class="auto-style1"/>
+            <span class="auto-style1">Escalation Channel: </span>
+                <select required name="Select4" id="escalChannel" class="auto-style1">
+                    <option>Mailbox</option>
+                    <option>Chatroom</option>
+                    <option>Hotline</option>
+                    <option>SC Auto-Notif</option>
+                    <option>Other</option>
+                </select><br />
+            
+            <span class="auto-style1">Escalation Startegy: </span>
+                <select required name="Select5" id="escalStrat" class="auto-style1">
+                    <option>GSECC IR Mgd</option>
+                    <option>HCM</option>
+                    <option>RCT HCM</option>
+                    <option>OD HCM</option>
+                    <option>GBC HCM</option>
+                    <option>ASC HCM</option>
+                    <option>AIM HCM</option>
+                    <option>Trading HCM</option>
+                    <option>Quant HCM</option>
+                    <option>Technical & Trading Specialists Leaders</option>
+                </select><br />
 
-<div id="output field">
-<textarea id="display"name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" >
-</textarea><br />
-</div>
-<br />
-<button id="copy-button" class="auto-style1">Copy to Clipboard</button>
+            <span class="auto-style1">Trigger: </span> 
+                <select required name="Select1" id="trigger" class="auto-style1">
+                    <option>Update - Timeliness</option>
+                    <option>Update - Value</option>
+                    <option>Update - Accuracy</option>
+                    <option>Resolution - Aging</option>
+                    <option>Resolution - Urgent</option>
+                    <option>Resolution - Challenge</option>
+                    <option>Resolution - Follow Up</option>
+                    <option>Review - CS</option>
+                    <option>REview - RCA</option>
+                    <option>Review - Prod Capability</option>
+                    <option>Review - Behavior</option>
+                    <option>Proactive - Consult</option>
+                    <option>Proactive - VIP</option>
+                    <option>Proactive - FYI</option>
+                    <option>Repeat Issue</option>
+                    <option>Invalid - Accidental Click</option>
+                    <option>Invalid - Other</option>
+                </select><br />
+        
+    </div>
 
-<span class="auto-style1">
+    <br />
 
-<script>
-    var input  = document.getElementById("display");
-    var button = document.getElementById("copy-button");
+    <button onclick="showInput();" class="auto-style1">Submit</button>&nbsp;&nbsp;&nbsp;
+    <button onclick="location.reload();" class="auto-style1">Start Over</button>
 
-    button.addEventListener("click", function (event) {
-        event.preventDefault();
-        input.select();
-        document.execCommand("copy");
-        alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
-    });
-</script>
+    </span> <br class="auto-style1" />
+        <br class="auto-style1" />
 
-</span><br class="auto-style1" />
+    <span class="auto-style1"><strong><br />
+    Step 2:</strong> Copy-Paste the results to the escalation</span>
+        <span class="auto-style1"><strong>Task/Activity</strong> 
+        &gt; <strong>Description</strong> field in your case.</span>
+    <br class="auto-style1"/>
+    <br class="auto-style1"/>
 
-<br class="auto-style1"/>
+    <div id="output field">
+    <textarea id="display"name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" >
+    </textarea><br />
+    </div>
+    <br />
+    <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
 
-<br class="auto-style1" />
+    <span class="auto-style1">
 
 
 
+    </span><br class="auto-style1" />
 
+    <br class="auto-style1"/>
 
+    <br class="auto-style1" />
 
 </body>
 
