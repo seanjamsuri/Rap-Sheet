@@ -30,7 +30,20 @@
                         + document.getElementById("aro").value + " | " + document.getElementById("escalName").value + " | " + document.getElementById("escalOrg").value + " | " 
                         + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
         }   
+
+        $(function(){
+            var $co = $('#co');
+            var $cog = $('#cog');
+            function onChange() {
+                $cog.val($co.val());
+            };
+            $('#co')
+                .change(onChange)
+                .keyup(onChange);
+        });
     </script>
+
+
     
     
 </head>
@@ -108,7 +121,7 @@
             
             <span class="auto-style1">Escalation Startegy: </span>
                 <select name="Select5" id="escalStrat" class="auto-style1">
-                    <option>GSECC IR Mgd</option>
+                    <option>GSECC IR Managed</option>
                     <option>HCM</option>
                     <option>RCT HCM</option>
                     <option>OD HCM</option>
