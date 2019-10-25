@@ -169,21 +169,21 @@
     <br class="auto-style1"/>
 
     <div id="output field">
-        <textarea id="display"name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" disabled>
+        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" disabled>
         </textarea><br />
     </div>
 
     <br />
-    <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
+    <button id="copy-button" class="auto-style1" onclick="copyText()">Copy to Clipboard</button>
 
     <span class="auto-style1"></span>
 
     <br class="auto-style1"/>
     <br class="auto-style1"/>
     <br class="auto-style1"/>
-
+<!--
     <script>
-        var input  = document.getElementById("display");
+        var input = document.getElementById("display");
         var button = document.getElementById("copy-button");
     
         button.addEventListener("click", function (event) {
@@ -193,7 +193,17 @@
             alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
         });
     </script>
-    
+-->
+
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("display");
+            copyText.select();
+            document.execCommand("copy");
+            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + copyText.value);
+        }
+    </script>
+
 </body>
 
 
