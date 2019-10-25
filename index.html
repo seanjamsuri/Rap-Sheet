@@ -38,6 +38,18 @@
         }
     </script>
 
+    <script>
+        var input = document.getElementById("display");
+        var button = document.getElementById("copy-button");
+
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            input.select();
+            document.execCommand("copy");
+            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
+        });
+    </script>
+
 </head>
 
 <body>
@@ -171,19 +183,9 @@
     <br />
     
     <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
-    <span class="auto-style1"></span>
-        <script>
-            var input = document.getElementById("display");
-            var button = document.getElementById("copy-button");
+    
         
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
-                input.select();
-                document.execCommand("copy");
-                alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
-            });
-        </script>
-    </span>
+    
 
 </body>
 
