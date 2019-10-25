@@ -80,6 +80,12 @@
 
             <span class="auto-style1">Case Owner Group: </span>
                 <input name="Text3" type="text" id="cog" class="auto-style1" required><br />
+            
+            <script>
+                function copyCOG2ARO() {
+                    document.getElementById("aro").value = document.getElementById("cog").value;
+                }
+            </script>
 
             <span class="auto-style1">Accountable Resolver Group: </span>
                 <input name="Text4" type="text" id="aro" placeholder="Leave blank if N/A" class="auto-style1"><br />
