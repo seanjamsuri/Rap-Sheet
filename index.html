@@ -121,11 +121,16 @@
 
             <span class="auto-style1">Case Owner Group: </span>
                 <div class="tooltip">
-                    <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();">
+                    <input name="Text3" type="text" id="cog" class="auto-style1">
+                    <!-- <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();"> -->
                     <span class="tooltiptext">current Role or queue of the Case Owner as seen in Service Cloud</span>
                 </div> 
                 <br />
             
+            <input type="checkbox" name="sameAROandCO" onclick="copyCOG2ARO();">
+                <span class="auto-style1">Check this box if the Case Owner Group and Accountable Resolver Group are the same</span>
+            </br>
+
             <span class="auto-style1">Accountable Resolver Group: </span>
                 <div class="tooltip">
                     <input name="Text4" type="text" id="aro" class="auto-style1">
