@@ -23,13 +23,14 @@
         }
         .tooltip {
             font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
             position: relative;
             display: inline-block;
             border-bottom: 1px dotted #0023FF;
         }
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 400px;
+            width: 275px;
             background-color: #0023FF;
             color: #fff;
             text-align: center;
@@ -93,8 +94,7 @@
     <div id="inputFields">
         <form>
             <span class="auto-style1">Case Status: </span>
-                <div class="tooltip">
-                    <select name="Select2" id="status" class="auto-style1">
+                <select name="Select2" id="status" class="auto-style1">
                         <option>Work In Progress</option>
                         <option>New</option>
                         <option>Partial Service Restored</option>
@@ -109,22 +109,36 @@
                         <option>Duplicate</option>
                         <option>In Review</option>
                         <option>Pending Knowledge Creation</option>
-                    </select>
-                <span class="tooltiptext">Current Case Status</span>
-                </div>
+                </select>
                 <br />
             
             <span class="auto-style1">Case Owner: </span> 
-                <input name="Text1" type="text" id="co" class="auto-style1" required><br />
+                <div class="tooltip">
+                    <input name="Text1" type="text" id="co" class="auto-style1">
+                    <span class="tooltiptext">current Case Owner as seen in Service Cloud</span>
+                </div>    
+                <br />
 
             <span class="auto-style1">Case Owner Group: </span>
-                <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();" required><br />
+                <div class="tooltip">
+                    <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();">
+                    <span class="tooltiptext">current Role or queue of the Case Owner as seen in Service Cloud</span>
+                </div> 
+                <br />
             
             <span class="auto-style1">Accountable Resolver Group: </span>
-                <input name="Text4" type="text" id="aro" class="auto-style1"><br />
+                <div class="tooltip">
+                    <input name="Text4" type="text" id="aro" class="auto-style1">
+                    <span class="tooltiptext">write the Service Cloud queue of the Accountable Resolver</span>
+                </div>
+                <br />
             
             <span class="auto-style1">Escalation Source Name: </span>
-                <input name="Text5" type="text" id="escalName" class="auto-style1" required><br />
+                <div class="tooltip">
+                    <input name="Text5" type="text" id="escalName" class="auto-style1" required>
+                    <span class="tooltiptext">write First Name then Last Name (firtname lastname)</span>
+                </div>
+                <br />
             
             <span class="auto-style1">Escalation Source Org: </span>
                 <select name="Select3" id="escalOrg" class="auto-style1">
