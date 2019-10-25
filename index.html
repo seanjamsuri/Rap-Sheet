@@ -30,13 +30,8 @@
                         + document.getElementById("aro").value + " | " + document.getElementById("escalName").value + " | " + document.getElementById("escalOrg").value + " | " 
                         + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
         }   
-        
-        funtion copyCOG(c) {
-            if  (c.sameARO.checked == true) {
-                c.aro.value = c.cog.value
-            }
-        }
-        
+ 
+               
     </script>
 
 
@@ -84,9 +79,7 @@
                 <input name="Text1" type="text" id="co" class="auto-style1" required><br />
 
             <span class="auto-style1">Case Owner Group: </span>
-                <input name="Text3" type="text" id="cog" class="auto-style1" required>
-                <input name="sameARO" type="checkbox" onclick="copyCOG(this)"> <em>Same CO and ARO?</em>
-                <br />
+                <input name="Text3" type="text" id="cog" class="auto-style1" required><br />
 
             <span class="auto-style1">Accountable Resolver Group: </span>
                 <input name="Text4" type="text" id="aro" placeholder="Leave blank if N/A" class="auto-style1"><br />
