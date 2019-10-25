@@ -31,16 +31,16 @@
                         + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
         }   
 
-        $(function(){
-            var $co = $('#co');
+        function(){
             var $cog = $('#cog');
+            var $aro = $('#aro');
             function onChange() {
-                $cog.val($co.val());
+                $aro.val($cog.val());
             };
-            $('#co')
+            $('#cog')
                 .change(onChange)
                 .keyup(onChange);
-        });
+        };
     </script>
 
 
