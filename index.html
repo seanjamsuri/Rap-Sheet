@@ -38,17 +38,7 @@
         }
     </script>
 
-    <script>
-        var input = document.getElementById("display");
-        var button = document.getElementById("copy-button");
-
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            input.select();
-            document.execCommand("copy");
-            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
-        });
-    </script>
+    
 
 </head>
 
@@ -176,7 +166,7 @@
     <br class="auto-style1"/>
 
     <div id="outputField">
-        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="90" class="auto-style1" disabled>
+        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="90" class="auto-style1" >
         </textarea><br />
     </div>
 
@@ -184,7 +174,17 @@
     
     <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
     
-        
+    <script>
+        var input = document.getElementById("display");
+        var button = document.getElementById("copy-button");
+
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            input.select();
+            document.execCommand("copy");
+            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
+        });
+    </script>     
     
 
 </body>
