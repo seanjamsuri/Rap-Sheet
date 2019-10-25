@@ -79,7 +79,7 @@
                 <input name="Text1" type="text" id="co" class="auto-style1" required><br />
 
             <span class="auto-style1">Case Owner Group: </span>
-                <input name="Text3" type="text" id="cog" class="auto-style1" required><br />
+                <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();" required><br />
             
             <script>
                 function copyCOG2ARO() {
@@ -88,7 +88,7 @@
             </script>
 
             <span class="auto-style1">Accountable Resolver Group: </span>
-                <input name="Text4" type="text" id="aro" placeholder="Leave blank if N/A" class="auto-style1"><br />
+                <input name="Text4" type="text" id="aro" class="auto-style1"><br />
             
             <span class="auto-style1">Escalation Source Name: </span>
                 <input name="Text5" type="text" id="escalName" class="auto-style1" required><br />
