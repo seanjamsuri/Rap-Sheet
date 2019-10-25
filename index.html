@@ -29,14 +29,15 @@
                         document.getElementById("status").value + " | " + document.getElementById("co").value + " | " + document.getElementById("cog").value + " | " 
                         + document.getElementById("aro").value + " | " + document.getElementById("escalName").value + " | " + document.getElementById("escalOrg").value + " | " 
                         + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value;
-        }   
- 
-               
+                        }   
+    </script>
+    
+    <script>
+        function copyCOG2ARO() {
+            document.getElementById("aro").value = document.getElementById("cog").value;
+        }
     </script>
 
-
-    
-    
 </head>
 
 <body>
@@ -55,7 +56,7 @@
     <br />
 
 
-    <div id="input fields">
+    <div id="inputFields">
         <form>
             <span class="auto-style1">Case Status: </span>
                 <select name="Select2" id="status" class="auto-style1">
@@ -81,12 +82,6 @@
             <span class="auto-style1">Case Owner Group: </span>
                 <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();" required><br />
             
-            <script>
-                function copyCOG2ARO() {
-                    document.getElementById("aro").value = document.getElementById("cog").value;
-                }
-            </script>
-
             <span class="auto-style1">Accountable Resolver Group: </span>
                 <input name="Text4" type="text" id="aro" class="auto-style1"><br />
             
@@ -168,20 +163,19 @@
     <br class="auto-style1"/>
     <br class="auto-style1"/>
 
-    <div id="output field">
-        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="100" class="auto-style1" disabled>
+    <div id="outputField">
+        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="80" class="auto-style1" disabled>
         </textarea><br />
     </div>
 
     <br />
-    <button id="copy-button" class="auto-style1" onclick="copyText()">Copy to Clipboard</button>
+    
+    <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
 
-    <span class="auto-style1"></span>
+    <br class="auto-style1"/>
+    <br class="auto-style1"/>
+    <br class="auto-style1"/>
 
-    <br class="auto-style1"/>
-    <br class="auto-style1"/>
-    <br class="auto-style1"/>
-<!--
     <script>
         var input = document.getElementById("display");
         var button = document.getElementById("copy-button");
@@ -192,16 +186,6 @@
             document.execCommand("copy");
             alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
         });
-    </script>
--->
-
-    <script>
-        function copyText() {
-            var copyText = document.getElementById("display");
-            copyText.select();
-            document.execCommand("copy");
-            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + copyText.value);
-        }
     </script>
 
 </body>
