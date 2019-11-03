@@ -19,7 +19,7 @@
         }
         .auto-style4 {
             font-family: Arial, Helvetica, sans-serif;
-            font-size: smaller;
+            font-size: small;
             color: #0023FF;
         }
         .tooltip {
@@ -89,6 +89,7 @@
     <span class="auto-style1"><strong><br />
     Step 1: </strong>Complete the form to capture details of the case at the point of escalation (or re-escalation).</span>
     <br />
+    <span class="auto-style4">If there is no case associated to the escalation, please log the escalation task under placeholder case <strong>08096311</strong>.</span>
     <br />
 
 
@@ -116,7 +117,7 @@
             <span class="auto-style1">Case Owner: </span> 
                 <div class="tooltip">
                     <input name="Text1" type="text" id="co" class="auto-style1">
-                    <span class="tooltiptext">current Case Owner as seen in Service Cloud</span>
+                    <span class="tooltiptext">current Case Owner as seen in Service Cloud. Leave blank if no case.</span>
                 </div>    
                 <br />
 
@@ -124,7 +125,7 @@
                 <div class="tooltip">
                     <input name="Text3" type="text" id="cog" class="auto-style1">
                     <!-- <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();"> -->
-                    <span class="tooltiptext">current Role or queue of the Case Owner as seen in Service Cloud</span>
+                    <span class="tooltiptext">current Role or queue of the Case Owner as seen in Service Cloud. Leave blank if no case.</span>
                 </div> 
                 <br />
             
@@ -135,7 +136,7 @@
             <span class="auto-style1">Accountable Resolver Group: </span>
                 <div class="tooltip">
                     <input name="Text4" type="text" id="aro" class="auto-style1">
-                    <span class="tooltiptext">write the Service Cloud queue of the Accountable Resolver</span>
+                    <span class="tooltiptext">write the Service Cloud queue of the Accountable Resolver. Leave blank if no case.</span>
                 </div>
                 <br />
             
@@ -242,20 +243,7 @@
         });
     </script>     
     
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <div name="nocase" class="auto-style1">
-        <p><b>Escalation with No Case/s:</b></p>
-        <p>For any escalation where no case exists yet, kindly log your escalation task under our placeholder case <em>08096311</em>.</p>
-        <p>Leave <em>Case Owner, Case Owner Group and Accountable Resolver Group</em> as <em>BLANK</em></p>
-        <p>Choose <em>Case Status</em> as <em>New</em>.</p>
-        <p>The rest of the fields, kindly fill out normally.</p>
-    </div>
+  
 
 
 </body>
