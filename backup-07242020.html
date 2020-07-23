@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="en-us" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>GSECC Incident Response - The Rap Sheet</title>
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:large;
+        }
+        .auto-style2 {
+            color: #0023FF;
+            font-size: xx-large;
+        }
+        .auto-style3 {
+            font-size: larger;
+        }
+        .auto-style4 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: small;
+            color: #0023FF;
+        }
+        .tooltip {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: small;
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted #0023FF;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 275px;
+            background-color: #0023FF;
+            color: #fff;
+            text-align: center;
+            
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 110%;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #0023FF transparent transparent;
+            }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }      
+    </style>
+    
+    <script language="JavaScript">
+        function showInput() {
+            document.getElementById('display').innerHTML = 
+                        document.getElementById("status").value + " | " + document.getElementById("co").value + " | " + document.getElementById("cog").value + " | " 
+                        + document.getElementById("aro").value + " | " + document.getElementById("escalName").value + " | " + document.getElementById("escalOrg").value + " | " 
+                        + document.getElementById("escalChannel").value + " | " + document.getElementById("escalStrat").value + " | " + document.getElementById("trigger").value + " | "
+                        + document.getElementById("coverage").value + " | " + document.getElementById("bcc").value;
+                        }   
+    </script>
+
+    <script>
+        function copyCOG2ARO() {
+            document.getElementById("aro").value = document.getElementById("cog").value;
+        }
+    </script>
+
+    
+
+</head>
+
+<body>
+
+    <header class="auto-style1">
+        <strong>
+            <span class="auto-style2">The Rap Sheet</span>
+        </strong>
+    </header>
+
+    <br class="auto-style1" />
+
+    <span class="auto-style1"><strong><br />
+    Step 1: </strong>Complete the form to capture details of the case at the point of escalation (or re-escalation).</span>
+    <br />
+    <span class="auto-style4">If there is no case associated to the escalation, please log the escalation task under placeholder case <strong>08096311</strong>.</span>
+    <br />
+    <br />
+
+
+    <div id="inputFields">
+        <form>
+            <span class="auto-style1">Case Status: </span>
+                <select name="Select2" id="status" class="auto-style1">
+                        <option>Work In Progress</option>
+                        <option>New</option>
+                        <option>Partial Service Restored</option>
+                        <option>Fix Applied</option>
+                        <option>Service Restored</option>
+                        <option>Closed</option>
+                        <option>Cancelled</option>
+                        <option>To Be Scheduled </option>
+                        <option>Reviewed - Not Accepted</option>
+                        <option>Awaiting More Details</option>
+                        <option>Notified</option>
+                        <option>Duplicate</option>
+                        <option>In Review</option>
+                        <option>Released</option>
+                        <option>Pending Knowledge Creation</option>
+                </select>
+                <br />
+            
+            <span class="auto-style1">Case Owner: </span> 
+                <div class="tooltip">
+                    <input name="Text1" type="text" id="co" class="auto-style1">
+                    <span class="tooltiptext">Write the current Case Owner as seen in Service Cloud. Leave blank if no case.</span>
+                </div>    
+                <br />
+
+            <span class="auto-style1">Case Owner Group: </span>
+                <div class="tooltip">
+                    <input name="Text3" type="text" id="cog" class="auto-style1">
+                    <!-- <input name="Text3" type="text" id="cog" class="auto-style1" onkeyup="copyCOG2ARO();"> -->
+                    <span class="tooltiptext">Write the current Role or queue of the Case Owner as seen in Service Cloud. Leave blank if no case.</span>
+                </div> 
+                
+            
+            <input type="checkbox" name="sameAROandCO" onclick="copyCOG2ARO();">
+                <span class="auto-style4">Check this box if the <strong>Case Owner Group</strong> and <strong>Accountable Resolver Group</strong> are the same</span>
+            </br>
+
+            <span class="auto-style1">Accountable Resolver Group: </span>
+                <div class="tooltip">
+                    <input name="Text4" type="text" id="aro" class="auto-style1">
+                    <span class="tooltiptext">Write the Service Cloud queue of the Accountable Resolver. Leave blank if no case.</span>
+                </div>
+                <br />
+            
+            <span class="auto-style1">Resolver Team Coverage: </span>
+                <select name="Select6" id="coverage" class="auto-style1">
+                    <option>On Shift</option>
+                    <option>Out of Coverage</option>
+                </select>
+            </br>
+            
+            </br>
+
+            <span class="auto-style1">Escalation Source Name: </span>
+                <div class="tooltip">
+                    <input name="Text5" type="text" id="escalName" class="auto-style1">
+                    <span class="tooltiptext">Write the First Name followed by the Last Name of the person escalating</span>
+                </div>
+                <br />
+            
+            <span class="auto-style1">Escalation Source Org: </span>
+                <select name="Select3" id="escalOrg" class="auto-style1">
+                    <option>S&AM</option>
+                    <option>GSECC</option>
+                    <option>HD English</option>
+                    <option>HD Non-Eng</option>
+                    <option>Content</option>
+                    <option>TechOps</option>
+                    <option>Implementation</option>
+                    <option>Wflow Spec</option>
+                    <option>Tech Spec</option>
+                    <option>Other</option>
+                </select><br />
+
+            <span class="auto-style1">Escalation Channel: </span>
+                <select name="Select4" id="escalChannel" class="auto-style1">
+                    <option>Mailbox</option>
+                    <option>Chatroom</option>
+                    <option>Hotline</option>
+                    <option>SC Auto-Notif</option>
+                    <option>Other</option>
+                </select><br />
+            
+            <span class="auto-style1">Escalation Strategy: </span>
+                <select name="Select5" id="escalStrat" class="auto-style1">
+                    <optgroup label="GSECC IR Managed">
+                        <option>GSECC IR Managed</option>
+                    </optgroup>
+                    <optgroup label="Frontline HCM">
+                        <option>Datascope HCM</option>
+                        <option>Datascope AS</option>
+                        <option>EFS HCM</option>
+                        <option>Eikon AIM HCM</option>
+                        <option>Eikon AIM AS</option>
+                        <option>Eikon Tech HCM</option>
+                        <option>Eikon Trading HCM</option>
+                        <option>Eikon Trading AS</option>
+                        <option>Frontline Quant HCM</option>
+                        <option>RISK HCM</option>
+                        <option>SPT HCM</option>
+                        <option>Transactions and FXT HCM</option>
+                    </optgroup>
+                    
+                    <!--
+                    <optgroup label="Customer Support HCM">
+                        <option>HCM</option> 
+                    -->
+
+                    <optgroup label="Technical & Trading Specialists">    
+                        <option>Technical & Trading Specialists Leaders</option>
+                    </optgroup>
+                    
+                    <optgroup label="Workflow Specialists">
+                        <option>AIM HCM</option>
+                        <option>ASC HCM</option>
+                        <option>Enhancement</option>
+                        <option>GBC HCM</option>
+                        <option>OD HCM</option>
+                        <option>RCT HCM</option>
+                        <option>Quant HCM</option>
+                        <option>Trading HCM</option>
+                    </optgroup>
+
+                    <optgroup label="Content HCM">
+                        <option>#HCM-Contributed Content</option>
+                        <option>Asia ETI content ops extended management</option>
+                        <option>BONDDESK Blr</option>
+                        <option>CAVS Estimates Support</option>
+                        <option>Commodities_Content_Escalations</option>
+                        <option>Economics Content - CST</option>
+                        <option>ESG Content and Product Support</option>
+                        <option>ETI EMEA Management Team</option>
+                        <option>FIFXMM IM</option>
+                        <option>Fundamentals Support</option>
+                        <option>IRC Fundamentals QM TL</option>
+                        <option>TR-BLR ETI Escalation</option> 
+                    </optgroup> 
+                    <optgroup label="Order & Rights Management">
+                        <option>HCM-Order and Right Mgmt </option>
+                    </optgroup>    
+                                                                       
+                </select><br />
+
+            <span class="auto-style1">Trigger: </span> 
+                <select name="Select1" id="trigger" class="auto-style1">
+                    <option>Update - Timeliness</option>
+                    <option>Update - Value</option>
+                    <option>Update - Accuracy</option>
+                    <option>Resolution - Aging</option>
+                    <option>Resolution - Urgent</option>
+                    <option>Resolution - Challenge</option>
+                    <option>Resolution - Follow Up</option>
+                    <option>Review - CS</option>
+                    <option>Review - RCA</option>
+                    <option>Review - Prod Capability</option>
+                    <option>Review - Behavior</option>
+                    <option>Proactive - Consult</option>
+                    <option>Proactive - VIP</option>
+                    <option>Proactive - FYI</option>
+                    <option>Repeat Issue</option>
+                    <option>Invalid - Accidental Click</option>
+                    <option>Invalid - Other</option>
+                </select><br />
+
+<!--start edit 7-9-2020 -->
+                <br/>
+                <span class="auto-style1">BCC Partner: </span>
+                    <select name="Select1" id="bcc" class="auto-style1">
+                        <option>Not Applicable</option>
+                        <optgroup label="Frontline Support">
+                            <option>Mike Peterson</option>
+                            <option>Kim Torredes</option>
+                            <option>Jennifer Crisostomo</option>
+                            <option>Philip George</option>
+                            <option>Donna Formilleza</option>
+                            <option>Mary Angeline Arce</option>
+                            <option>Aldel Delgado Ramos</option>
+                            <option>Michelle Nitura-Go</option>                            
+                        </optgroup> 
+                        <optgroup label="Trading & Technical Specialists">
+                            <option>Colin Dorman</option>
+                            <option>Chris Melson</option>
+                            <option>Hiro Amai</option>
+                            <option>Steven Allery</option>
+                            <option>Christina Yeung</option>
+                            <option>Ryan Krebs</option>
+                            <option>Sikhander St. Luce</option>                            
+                        </optgroup> 
+                        <optgroup label="Trading & Technical Specialists">
+                            <option>Mary Ann Serrahn</option>
+                            <option>Himanshu Sadana</option>                         
+                        </optgroup> 
+                    </select>
+<!--stop edit 7-9-2020 --> 
+        </form>
+    </div>
+
+    <br />
+
+    <button onclick="showInput();" class="auto-style1">Submit</button>&nbsp;&nbsp;&nbsp;
+    <button onclick="location.reload();" class="auto-style1">Start Over</button>
+
+    <br class="auto-style1" />
+    <br class="auto-style1" />
+
+    <span class="auto-style1"><strong><br />
+    Step 2:</strong> Copy-Paste the results to the escalation</span>
+            <span class="auto-style1"><strong>Task</strong> &gt; <strong>Description</strong> field in your case.</span>
+    
+    <br class="auto-style1"/>
+    <br class="auto-style1"/>
+
+    <div id="outputField">
+        <textarea id="display" name="textbox" rows="4" style="border-style: solid" cols="90" class="auto-style1" readonly=readonly>
+        </textarea><br />
+    </div>
+
+    <br />
+    
+    <button id="copy-button" class="auto-style1">Copy to Clipboard</button>
+    
+    <script>
+        var input = document.getElementById("display");
+        var button = document.getElementById("copy-button");
+
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            input.select();
+            document.execCommand("copy");
+            alert("\nSuccessfully copied the following text to the clipboard:\n\n" + input.value);
+        });
+    </script>     
+    
+  
+
+
+</body>
+
+
+
+</html>
